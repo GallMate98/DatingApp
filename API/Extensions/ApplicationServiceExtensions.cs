@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using API.Interfaces;
+using API.Service;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace API.Extensions
+{
+    public static class ApplicationServiceExtensions
+    {
+      public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration confing)
+      {
+
+         services.AddScoped<ITokenService, TokenService>();
+            services.AddDbContext<Data.Datacontext>(options=>
+            {
+                options.UseSqlite(confing.GetConnectionString("DefaultConnection"));
+              
+            });
+            return services;
+      }
+    }
+}
