@@ -8,17 +8,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Data.Migrations
 {
-    [DbContext(typeof(Datacontext))]
-    [Migration("20211117121322_UserPasswordAdded")]
+    [DbContext(typeof(DataContext))]
+    [Migration("20210927095051_UserPasswordAdded")]
     partial class UserPasswordAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.11");
+                .HasAnnotation("ProductVersion", "5.0.10");
 
-            modelBuilder.Entity("API.Entities.AppUsers", b =>
+            modelBuilder.Entity("API.Entities.AppUser", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
