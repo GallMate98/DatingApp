@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,10 +19,11 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
-        public AccountController(DataContext context, ITokenService tokenService)
+              public AccountController(DataContext context, ITokenService tokenService)
         {
             _tokenService = tokenService;
             _context = context;
+           
         }
 
         [HttpPost("register")]
@@ -75,5 +78,7 @@ namespace API.Controllers
         {
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
         }
+        
+
     }
 }
