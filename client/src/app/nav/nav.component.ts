@@ -20,6 +20,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     this.setThisUser();
+    
   }
   
   login() {
@@ -34,8 +35,9 @@ export class NavComponent implements OnInit {
   }
   setThisUser() {
     this.accountService.currentUser$.subscribe((user:any) =>
-      this.user=user,
+      this.user=user,    
       (error:any)=>{console.log("It was an error")});
   }
+  
 }
 
