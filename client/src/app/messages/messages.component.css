@@ -1,0 +1,12 @@
+.img-circle {
+    max-height: 50px;
+}
+
+button.btn-danger{
+	background-color: #dc3545;
+	color:white
+}
+
+button.btn-danger:hover{
+	background-color: #c82333;
+} 
